@@ -1,0 +1,28 @@
+
+---
+- name: script
+  hosts: webservers
+  become: yes
+  become_method: sudo
+  vars_files:
+     /etc/ansible/vars/vars.yml
+  roles:
+      - auditd
+      - bashrc
+      - chkconfig
+      - configs
+      - docker
+      - hostname
+      - iptables
+      - ipv6
+      - packages
+      - pam.d
+      - percona
+      - remi
+      - repos
+      - ssh
+      - sshd_config
+      - timezone
+      - usermail
+      - zabbix
+
