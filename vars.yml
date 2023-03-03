@@ -1,0 +1,26 @@
+  GNU nano 2.9.8                                                                                        vars.yml                                                                                                  
+
+TIMEZONE: Europe/Kiev
+USERNAME: user
+USEREMAIL: user@user.dp.ua
+BASHRC: true
+HOSTNAME: testing
+REMI: true
+PERCONA: false
+AUDITD: false
+ZABBIX: true
+DOCKER: false
+YEAR: date +%Y
+EPEL_RELEASE: http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-13.noarch.rpm
+CIVENTY_RELEASE: https://repos.civenty.com/civenty-release.noarch.rpm
+
+
+
+
+
+
+
+
+
+
+
