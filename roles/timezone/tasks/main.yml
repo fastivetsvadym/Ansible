@@ -1,0 +1,10 @@
+- name: localtime
+  ansible.builtin.file:
+    src: /usr/share/zoneinfo/"{{ TIMEZONE }}"
+    dest: /etc/localtime
+    state: link
+    force: yes
+- name: timezone
+  copy:
+    dest: /etc/timezone
+    content: "{{ TIMEZONE }}"

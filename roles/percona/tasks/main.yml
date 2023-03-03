@@ -1,0 +1,8 @@
+- name: install percona
+  when: PERCONA==true
+  yum: 
+    name: https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+
+- name: Upgrade all packages
+  dnf:
+    update_only: yes

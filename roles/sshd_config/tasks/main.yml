@@ -1,0 +1,29 @@
+- name: sshd_config
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: '#Port 22'
+    replace: 'Port 5022'
+
+- name: sshd_config
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: 'PermitRootLogin no yes'    
+    replace: 'PermitRootLogin no'
+
+- name: sshd_config
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: 'PermitRootLogin yes'
+    replace: 'PermitRootLogin no'
+
+- name: sshd_config
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: 'PasswordAuthentication yes'
+    replace: 'PasswordAuthentication no'
+
+- name: sshd_config
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: '#UseDNS yes'
+    replace: 'UseDNS no'

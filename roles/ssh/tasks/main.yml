@@ -1,0 +1,18 @@
+- name: Create a directory
+  ansible.builtin.file:
+    path: /etc/skel/.ssh
+    state: directory
+    mode: '0700'
+- name: Create a file
+  ansible.builtin.file:
+    path: /etc/skel/.ssh/authorized_keys
+    state: touch
+    mode: '600'
+- name: Add the user
+  ansible.builtin.user:
+    name: USERNAME
+    group: wheel
+- name: add_ssh_key
+  copy:
+    dest: /home/USERNAME/.ssh/authorized_keys
+    content: SSH_KEY

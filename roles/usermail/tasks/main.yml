@@ -1,0 +1,10 @@
+- name: useremail
+  replace:
+    path: /etc/aliases
+    regexp: '#root: marc' 
+    replace: 'root: {{USERNAME}}' 
+
+- name: useremail
+  lineinfile:
+    dest: /etc/aliases
+    line: '{{ USERNAME }}_{{ USEREMAIL }}'

@@ -1,0 +1,5 @@
+- name: su
+  replace:
+    path: /etc/pam.d/su
+    regexp: '#auth\t\tsufficient\tpam_wheel.so trust use_uid'
+    replace: 'auth\t\tsufficient\tpam_wheel.so trust use_uid'

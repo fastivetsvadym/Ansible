@@ -1,0 +1,5 @@
+- name: install remi
+  when: REMI==true
+  yum: 
+    name: http://rpms.famillecollet.com/enterprise/remi-release-8.rpm
+    disable_gpg_check: yes
