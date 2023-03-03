@@ -1,0 +1,27 @@
+- name: disable_selinux
+  ansible.builtin.replace:
+     path: /etc/selinux/config
+     regexp: '^SELINUX=[[:alpha:]]$'
+     replace: 'SELINUX=disabled'
+
+- name: stop_auditd
+  ansible.builtin.shell: service auditd stop
+
+
+- name: remove_packages
+  ansible.builtin.yum:
+    name:
+      - audit
+      - selinux*
+    state: absent
+- name: remove_log
+  ansible.builtin.file:
+    path: /var/log/audit
+    state: absent
+  #- name: disable_selinux
+  #  ansible.builtin.replace:
+  #    path: /etc/selinux/config
+  #    regexp: '^SELINUX=[[:alpha:]]$'
+  #    replace: 'SELINUX=disabled'
+  when: AUDITD == "false"
+
