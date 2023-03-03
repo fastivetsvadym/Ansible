@@ -1,0 +1,4 @@
+- name: install docker
+  when: DOCKER==true
+  yum: 
+    name: https://download.docker.com/linux/centos/docker-ce.repo

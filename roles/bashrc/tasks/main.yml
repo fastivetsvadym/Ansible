@@ -1,0 +1,10 @@
+- name: skel
+  when: BASHRC==true
+  copy:
+    src: /etc/ansible/roles/bashrc/files/skel
+    dest: /etc/skel/.bashrc
+
+- name: bashrc
+  copy:
+    src: /etc/ansible/roles/bashrc/files/bashrc
+    dest: /root/.bashrc

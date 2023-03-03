@@ -1,0 +1,16 @@
+- name: enabled 
+  service: 
+    name: "{{ item }}"
+    enabled: yes
+  with_items:
+    - chronyd
+    - iptables
+    - smartd
+    - mcelog
+    - atop
+
+- name: disabled
+  service: 
+    name: firewalld
+    enabled: no
+    state: stopped

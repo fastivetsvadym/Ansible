@@ -1,0 +1,40 @@
+- name: install_packages
+  ansible.builtin.yum:
+    name:
+    - wget
+    - mc
+    - htop 
+    - iotop 
+    - atop 
+    - dstat 
+    - bwm-ng 
+    - exim 
+    - rsync 
+    - logwatch 
+    - smartmontools 
+    - lsof 
+    - tcpdump 
+    - unzip 
+    - pciutils 
+    - mcelog 
+    - net-tools 
+    - glances 
+    - iptables-services 
+    - irqbalance 
+    - tmux 
+    - psmisc 
+    - chrony 
+    - bzip2 
+    - firewalld 
+    - yum-utils
+    state: present
+- name: remove_packages
+  ansible.builtin.yum:
+    name:
+    - avahi-autoipd 
+    - postfix
+    - ppp
+    - wpa_supplicant
+    - ntp
+    - polkit
+    state: removed

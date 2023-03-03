@@ -1,0 +1,4 @@
+- name: iptables
+  copy:
+    src: /etc/ansible/roles/iptables/files/iptables
+    dest: /etc/sysconfig/iptables

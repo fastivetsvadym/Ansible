@@ -1,0 +1,16 @@
+- name: disable.conf
+  copy:
+    dest: /etc/modprobe.d/disable.conf
+    content: 
+     'install bluetooth /bin/true
+     install rfkill /bin/true
+     install cfg80211 /bin/true
+     install ipv6 /bin/true
+     install ip6_tables /bin/true'
+
+- name: 10-ipv6-disabled.conf
+  copy:
+    dest: /etc/sysctl.d/10-ipv6-disabled.conf
+    content: 
+     'net.ipv6.conf.all.disable_ipv6 = 1
+     net.ipv6.conf.default.disable_ipv6 = 1'

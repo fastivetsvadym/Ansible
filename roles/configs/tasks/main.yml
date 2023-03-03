@@ -1,0 +1,55 @@
+- name: system.conf
+  replace:
+    path: /etc/systemd/system.conf
+    regexp: '#LogLevel=info'
+    replace: 'LogLevel=notice'
+
+- name: logrotate.conf
+  replace:
+    path: /etc/logrotate.conf
+    regexp: 'weekly'
+    replace: 'daily'
+
+- name: logrotate.conf
+  replace:
+    path: /etc/logrotate.conf
+    regexp: 'rotate 4'
+    replace: 'rotate 30'
+
+- name: logrotate.conf
+  replace:
+    path: /etc/logrotate.conf
+    regexp: '#compress'
+    replace: 'compress\n\nnotifempty\nnomail\nnoolddir\n'
+
+- name: raid-check
+  replace:
+    path: /etc/cron.d/raid-check
+    regexp: '0 1 \* \* Sun root'
+    replace: '0 1 1 \* \* root'
+
+- name: 20-nfile.conf
+  copy:
+    dest: /etc/security/limits.d/20-nfile.conf
+    content: 
+     '*               soft    nofile      32768
+     *               hard    nofile      65536'
+- name: tmux
+  copy:
+    src: /etc/ansible/roles/configs/files/tmux
+    dest: /root/.tmux.conf
+
+- name: local
+  lineinfile:
+    dest: /etc/rc.local
+    line: \$(date '+%d.%m.%Y %H:%M:%S')
+
+- name: mkdir
+  file: 
+    path: /root/.config/mc
+    state: directory
+
+- name: ini
+  copy:
+    src: /etc/ansible/roles/configs/files/mc
+    dest: /root/.config/mc/ini
